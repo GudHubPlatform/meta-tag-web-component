@@ -39,15 +39,13 @@ class MetaTag extends GHComponent {
             meta.setAttribute('name', name);
             meta.setAttribute('content', value);
 
-            if (!document.head.querySelector('[name="twitter:card"]')) {
+            if (this.type == 'title') {
                 const metaCard = document.createElement('meta');
                 metaCard.setAttribute('name', 'twitter:card');
                 metaCard.setAttribute('content', 'summary_large_image');
                 
                 document.querySelector('head').prepend(metaCard);
-            }
             
-            if (!document.head.querySelector('[name="twitter:site"]')) {
                 const metaSite = document.createElement('meta');
                 metaSite.setAttribute('name', 'twitter:site');
                 metaSite.setAttribute('content', this.twitterName);
